@@ -1,11 +1,44 @@
 <template>
-  <div class="ct" style="height: {{ctHeight}}">
-    <image class="img" style="width: 400px; height: 400px;" src="{{img}}"></image>
-    <text style="font-size: 42;">Hello Weex!</text>
+  <div>
+    <div class="ct" style="height: {{ctHeight}}">
+      <image class="img" style="width: 400px; height: 400px;" src="{{img}}"></image>
+      <text style="font-size: 42;">Hello Qeeniao Admin!</text>
+    </div>
+
+    <div style='flex-direction: column;'>
+      <slider class='slider' interval='{{intervalValue}}' auto-play="{{isAutoPlay}}">
+        <div class='slider-pages' repeat="{{itemList}}" onclick="goWeexSite">
+          <image class='thumb' src='{{pictureUrl}}'></image>
+          <text class='title'>{{title}}</text>
+        </div>
+      </slider>
+    </div>
+
+    <div class='container' onclick='goWeexSite'>
+      <div class='cell'>
+        <image class='thumb' src='http://t.cn/RGE3AJt'></image>
+        <text class='title'>Javascript</text>
+      </div>
+      
+      <div class='cell'>
+        <image class='thumb' src='http://t.cn/RGE3uo9'></image>
+        <text class='title'>Java</text>
+      </div>
+
+      <div class='cell'>
+        <image class='thumb' src='http://t.cn/RGE31hq'></image>
+        <text class='title'>Objective</text>
+      </div>
+    </div>
   </div>
 </template>
 
 <style>
+  .cell { margin-top:10 ; margin-left:10 ; flex-direction: row; }
+  .thumb { width: 200; height: 200; }
+  .title { text-align: center ; flex: 1; color: grey; font-size: 50; }
+  .slider { margin: 18; width: 714; height: 230;}
+  .slider-pages { flex-direction: row; width: 714; height: 200; }
   .ct {
     width: 750;
     align-items: center;
@@ -20,7 +53,20 @@
   module.exports = {
     data: {
       ctHeight: 800,
-      img: '//gw.alicdn.com/tps/i2/TB1DpsmMpXXXXabaXXX20ySQVXX-512-512.png_400x400.jpg'
+      img: '//gw.alicdn.com/tps/i2/TB1DpsmMpXXXXabaXXX20ySQVXX-512-512.png_400x400.jpg',
+      intervalValue:'1000',
+      isShowIndicators:'true',
+      isAutoPlay:'true',
+      itemList: [
+        {title:'Java', pictureUrl:'http://t.cn/RGE3uo9'},
+        {title:'Objective-c', pictureUrl:'http://t.cn/RGE31hq'},
+        {title:'Javascript', pictureUrl:'http://t.cn/RGE3AJt'}
+      ]
+    },
+    methods:{
+      goWeexSite: function () {
+        this.$openUrl('http://alibaba.github.io/weex/')
+      }
     },
     ready: function () {
       this.ctHeight = this.$getConfig().env.deviceHeight
