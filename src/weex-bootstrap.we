@@ -1,18 +1,29 @@
 <template>
   <div>
+    <container>
+      <text style='font-size:64'>Qeeniao</text>
+      <text class='large'>Qeeniao Team</text>
+    </container>
+
+    <container>
+      <text>The time is {{ datetime }}</text>
+      <text>{{ title }}</text>
+      <text>{{ getTitle() }}</text>
+    <container>
+
     <scroller class="scroller">
       <div class="ct" style="height: {{ctHeight}}">
-	<image class="img" style='width:100;height:100' src="{{img}}"></image>
-	<text style="font-size: 42;">Hello Qeeniao Admin!</text>
+        <image class="img" style='width:100;height:100' src="{{img}}"></image>
+        <text style="font-size: 42;">Hello Qeeniao Admin!</text>
       </div>
 
       <div style='flex-direction: column;'>
-	<slider class='slider' interval='{{intervalValue}}' auto-play="{{isAutoPlay}}">
-	  <div class='slider-pages' repeat="{{itemList}}" onclick="goWeexSite">
-	    <image class='thumb' style='width:200;height:200' src='{{pictureUrl}}'></image>
-	    <text class='title'>{{title}}</text>
-	  </div>
-	</slider>
+        <slider class='slider' interval='{{intervalValue}}' auto-play="{{isAutoPlay}}">
+          <div class='slider-pages' repeat="{{itemList}}" onclick="goWeexSite">
+            <image class='thumb' style='width:200;height:200' src='{{pictureUrl}}'></image>
+            <text class='title'>{{title}}</text>
+          </div>
+        </slider>
       </div>
 
       <div class='container' onclick='goWeexSite'>
@@ -72,15 +83,22 @@
         {title:'Java', pictureUrl:'https://gtms04.alicdn.com/tps/i4/TB1rgraLVXXXXa_XpXXT97RNpXX-259-259.png'},
         {title:'Objective-c', pictureUrl:'https://gtms01.alicdn.com/tps/i1/TB1S.u_LVXXXXcWXpXXEBEd5pXX-225-225.png'},
         {title:'Javascript', pictureUrl:'https://gtms01.alicdn.com/tps/i1/TB1wRLhLVXXXXapXXXXvUs8_FXX-344-390.png'}
-      ]
+      ],
+      title: "Qeeniao"
     },
     methods:{
       goWeexSite: function () {
         this.$openUrl('http://alibaba.github.io/weex/')
+      },
+      getTitle: function() {
+        return "Qeeniao Team"
       }
     },
     ready: function () {
       this.ctHeight = this.$getConfig().env.deviceHeight
+    },
+    created: function () {
+      this.datetime = new Date().toLocaleString()
     }
   }
 </script>
