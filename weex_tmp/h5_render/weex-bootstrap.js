@@ -104,6 +104,9 @@
 	        },
 	        {
 	          "type": "text",
+	          "style": {
+	            "fontSize": function () {return this.size}
+	          },
 	          "attr": {
 	            "value": function () {return this.title}
 	          }
@@ -383,7 +386,9 @@
 	    isShowIndicators: 'true',
 	    isAutoPlay: 'true',
 	    itemList: [{ title: 'Java', pictureUrl: 'https://gtms04.alicdn.com/tps/i4/TB1rgraLVXXXXa_XpXXT97RNpXX-259-259.png' }, { title: 'Objective-c', pictureUrl: 'https://gtms01.alicdn.com/tps/i1/TB1S.u_LVXXXXcWXpXXEBEd5pXX-225-225.png' }, { title: 'Javascript', pictureUrl: 'https://gtms01.alicdn.com/tps/i1/TB1wRLhLVXXXXapXXXXvUs8_FXX-344-390.png' }],
-	    title: "Qeeniao"
+	    title: "Qeeniao",
+
+	    size: 48
 	  }},
 	  methods: {
 	    goWeexSite: function goWeexSite() {

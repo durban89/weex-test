@@ -7,7 +7,7 @@
 
     <container>
       <text>The time is {{ datetime }}</text>
-      <text>{{ title }}</text>
+      <text style='font-size:{{size}}'>{{ title }}</text>
       <text>{{ getTitle() }}</text>
     <container>
 
@@ -84,7 +84,9 @@
         {title:'Objective-c', pictureUrl:'https://gtms01.alicdn.com/tps/i1/TB1S.u_LVXXXXcWXpXXEBEd5pXX-225-225.png'},
         {title:'Javascript', pictureUrl:'https://gtms01.alicdn.com/tps/i1/TB1wRLhLVXXXXapXXXXvUs8_FXX-344-390.png'}
       ],
-      title: "Qeeniao"
+      title: "Qeeniao",
+
+      size: 48
     },
     methods:{
       goWeexSite: function () {
